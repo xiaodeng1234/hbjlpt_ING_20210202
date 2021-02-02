@@ -1,6 +1,6 @@
 <template>
   <div>
-    待续22hahah。。。
+    continue...
   </div>
 </template>
 
