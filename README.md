@@ -30,3 +30,4 @@ main.js里把相应代码反注释
 ```
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+2
