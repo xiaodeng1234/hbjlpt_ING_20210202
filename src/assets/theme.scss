@@ -1,0 +1,451 @@
+// 滚动条滑块背景颜色
+$scrollbar_thumb: (
+  _light: #88d6ef,
+  _dark: #045d87
+);
+
+// 重置 elment 组件相关颜色
+$el_input_border: (
+  _light: #01b9d1,
+  _dark: #088df3
+);
+$el_input_text: (
+  _light: #4f5e7b,
+  _dark: #00c0ff
+);
+$el_input_bg: (
+  _light: #fff,
+  _dark: transparent
+);
+$el_el_button_primary_bg: (
+  _light: #1b9cff,
+  _dark: #088df3
+);
+$el_el_button_primary_text: (
+  _light: #fff,
+  _dark: #08143c
+);
+// element 弹框相关样式配色
+$el_dialog_border: (
+  _light: transparent,
+  _dark: #95b8e7
+);
+$el_dialog_header_bg: (
+  _light: #4084f0,
+  _dark: #08143c
+);
+$el_popover--plain_title_bg: (
+  _light: #0194d1,
+  _dark: #08143c
+);
+$el_dialog_header_text: (
+  _light: #fff,
+  _dark: #00f6ff
+);
+$el_dialog_header_close: (
+  _light: #fff,
+  _dark: #b0cde6
+);
+$el_dialog_header_close_hover: (
+  _light: #e6a23c,
+  _dark: transparent
+);
+$el_dialog_body_bg: (
+  _light: #fff,
+  _dark: #050a30
+);
+$el_dialog_footer_bg: (
+  _light: #ecf1fa,
+  _dark: #08143c
+);
+$el_datepiccker_text_hover: (
+  _light: #4084f0,
+  _dark: #00f6ff
+);
+$el_popper__arrow: (
+  _light: #fff,
+  _dark: #050a30
+);
+$el_item_hover: (
+  _light: #4084f0,
+  _dark: #00f6ff
+);
+
+$el_checkbox_bg_disabled: (
+  _light: #cad0d7,
+  _dark: #909399
+);
+
+// 主题背景颜色
+$home_bg: (
+  _light: #e0f3f9,
+  _dark: #050a30
+);
+// 主题文字颜色
+$home_text: (
+  _light: #333,
+  _dark: #03658f
+);
+
+// logo区文字颜色
+$logo_text: (
+  _light: #fff,
+  _dark: #028cc1
+);
+// logo区文字颜色
+$logo_text_hover: (
+  _light: #fff,
+  _dark: #00ace6
+); // logo区文字聚焦颜色
+$logo_text_bg_hover: (
+  _light: #40cbde,
+  _dark: #028cc1
+);
+// 换肤图片聚焦颜色
+$logo_img_bg_hover: (
+  _light: #40cbde,
+  _dark: #0d1b54
+);
+// 系统设置下拉文字颜色
+$logo_dropdown: (
+  _light: #253e41,
+  _dark: #018ab7
+);
+// 系统设置下拉文字聚焦颜色
+$logo_dropdown_hover: (
+  _light: #253e41,
+  _dark: #f48c04
+);
+
+// 导航栏背景颜色
+$tab_bg: (
+  _light: #f4fdfc,
+  _dark: transparent
+);
+// 导航栏边框颜色
+$tab_border: (
+  _light: #c1e8f9,
+  _dark: #08143c
+);
+// 导航栏文本颜色
+$tab_text: (
+  _light: #6c888b,
+  _dark: #00a5ff
+);
+// 导航栏文本激活颜色
+$tab_text_active: (
+  _light: #273f43,
+  _dark: #00ffff
+);
+// 导航栏激活项边框颜色
+$tab_border_active: (
+  _light: #00b6ef,
+  _dark: #00ace6
+);
+// 导航全部关闭按钮聚焦颜色
+$tab_allclose_hover: (
+  _light: #d0f2fa,
+  _dark: #0d1b54
+);
+// 全部关闭文字颜色
+$tab_allclose_text: (
+  _light: #fff,
+  _dark: #00ace6
+);
+// 全部关闭文字聚焦颜色
+$tab_allclose_text_hover: (
+  _light: #fff,
+  _dark: #00bfff
+);
+
+// 首页边框颜色
+$homepage_border: (
+  _light: #a2daef,
+  _dark: transparent
+);
+// 首页边框聚焦颜色
+$homepage_border_hover: (
+  _light: #06a1e1,
+  _dark: transparent
+);
+// 首页文字颜色
+$homepage_text: (
+  _light: #253e41,
+  _dark: #b7e5f8
+);
+
+// 首页菜单背景颜色
+$homepage_menu_bg: (
+  _light: #fff,
+  _dark: #091440
+);
+// 首页菜单背景聚焦颜色
+$homepage_menu_bg_hover: (
+  _light: #d3f5f7,
+  _dark: #0e2a52
+);
+
+// 首页设置按钮文字聚焦颜色
+$homepage_fit_text_hover: (
+  _light: #00a8ff,
+  _dark: #00faff
+);
+
+// 首页用户信息文字颜色
+$homepage_userinfo_name: (
+  _light: #333,
+  _dark: #00faff
+);
+// 首页用户信息文字颜色
+$homepage_userinfo_bg: (
+  _light: #f1fdfd,
+  _dark: #092369
+);
+// 首页用户信息文字颜色
+$homepage_userinfo_court: (
+  _light: #666,
+  _dark: #01a4db
+);
+
+$homepage_count_text: (
+  _light: #253e41,
+  _dark: #029dd5
+);
+$homepage_count_text_hover: (
+  _light: #fff,
+  _dark: #f48c04
+);
+// 首页统计项边框聚焦颜色
+$homepage_count_border_hover: (
+  _light: #3eaa5d,
+  _dark: transparent
+);
+// 首页统计项背景聚焦颜色
+$homepage_count_bg_hover: (
+  _light: #4acb6f,
+  _dark: transparent
+);
+// 统计项弹框中表头背景颜色
+$count_dialog_th_bg: (
+  _light: #beeaf8,
+  _dark: #08143c
+);
+// 统计项弹框中表头文字颜色
+$count_dialog_th_text: (
+  _light: #00869a,
+  _dark: #01a5ff
+);
+// 统计项弹框中表格边框颜色
+$count_dialog_table_border: (
+  _light: #a7c7d3,
+  _dark: #062950
+);
+// 统计项弹框中单元格背景颜色
+$count_dialog_td_bg: (
+  _light: #f4fcfc,
+  _dark: #08143c
+);
+// 统计项弹框中单元格背景颜色
+$count_dialog_td_dw: (
+  _light: #333,
+  _dark: #00f8fa
+);
+$count_dialog_td_text: (
+  _light: #666,
+  _dark: #01a5ff
+);
+// 统计项弹框中单元格背景颜色
+$count_dialog_td_bg: (
+  _light: #f4fcfc,
+  _dark: #08143c
+);
+$td_bg_active: (
+  _light: #beeaf8,
+  _dark: #055180
+);
+$td_text_active: (
+  _light: #333,
+  _dark: #f48c04
+);
+
+// 受理与分流边框颜色
+$slyfl_border: (
+  _light: #afd5e3,
+  _dark: transparent
+);
+$slyfl_select_tree_node_hover: (
+  _light: #d7e5f9,
+  _dark: #004fa2
+);
+$slyfl_select_tree_node_focus: (
+  _light:
+    rgba(
+      $color: #d7e5f9,
+      $alpha: 0.3
+    ),
+  _dark:
+    rgba(
+      $color: #004fa2,
+      $alpha: 0.3
+    )
+);
+$slyfl_select_tree_node_text: (
+  _light: #606266,
+  _dark: #00fdff
+);
+// 受理与分流日期背景颜色
+$slyfl_rqlx_bg: (
+  _light: #f1fdfd,
+  _dark: transparent
+);
+// 受理与分流日期类型激活背景颜色
+$slyfl_rqlx_btn_bg: (
+  _light: #fff,
+  _dark: transparent
+);
+// 受理与分流日期类型激活背景颜色
+$slyfl_rqlx_bg_active: (
+  _light: #01b9d1,
+  _dark: #00ace6
+);
+
+// 受理与分流统计项边框颜色
+$slyfl_count_item_border: (
+  _light: #86dadf,
+  _dark: transparent
+);
+// 查询按钮颜色
+$slyfl_search_btn_text: (
+  _light: #333,
+  _dark: #01a5ff
+);
+$slyfl_search_btn_text_hover: (
+  _light: #333,
+  _dark: #00fffc
+);
+
+// 受理与分流统计项边框颜色
+$slyfl_count_item_border: (
+  _light: #86dadf,
+  _dark: transparent
+);
+// 受理与分流统计项聚焦统计数字颜色
+$slyfl_count_text: (
+  _light: #253e41,
+  _dark: #01abe6
+);
+$slyfl_count_num: (
+  _light: #4a8289,
+  _dark: #01abe6
+);
+$slyfl_count_num_hover: (
+  _light: #253e41,
+  _dark: #00e1e1
+);
+$slyfl_accordion_text: (
+  _light: #333,
+  _dark: #00ace6
+);
+$slyfl_accordion_text_hover: (
+  _light: #333,
+  _dark: #00f6ff
+);
+
+// 报表弹框
+$baobiao_body_box_border: (
+  _light: transparent,
+  _dark: #062950
+);
+$baobiao_lefttitle_border: (
+  _light: #0194d1,
+  _dark: #062950
+);
+$baobiao_notleaf_text: (
+  _light: #00ace6,
+  _dark: #00ace6
+);
+$baobiao_left_border: (
+  _light: #f7f7f7,
+  _dark: transparent
+);
+
+// 专项重点
+$zxzd_setting_text: (
+  _light: #01accb,
+  _dark: #00adcf
+);
+//通讯录
+$txl_border: (
+  _light: #8fd8ef,
+  _dark: transparent 
+);
+$txl_border: (
+  _light: #8fd8ef,
+  _dark: transparent 
+);
+$txl__menu_bg: (
+  _light: #d5f2fb,
+  _dark: #07234d 
+);
+$txl_border_hover: (
+  _light: #53bcdc,
+  _dark: transparent 
+);
+$txl__menu_bg_hover: (
+  _light: #00ace6,
+  _dark: #00ace6 
+);
+$txl_name_count_text: (
+  _light: #253e41,
+  _dark: #00ffff
+);
+$txl_name_count_text_hover: (
+  _light: #253e41,
+  _dark: #000
+);
+$txl_p_border: (
+  _light: #a2daef,
+  _dark: #005d7c
+);
+$txl_p_border: (
+  _light: #a2daef,
+  _dark: #005d7c
+);
+$txl_count_text_hover: (
+  _light: #fff,
+  _dark: #000
+);
+
+// 法律文书公开
+$flwsgk_border: (
+  _light: #9bdcf0,
+  _dark: transparent
+);
+$flwsgk_border_active: (
+  _light: #c3e7f5,
+  _dark: transparent
+);
+
+// 律师权益保障
+$lsqybz_person_box_border: (
+  _light: #0B2D52,
+  _dark: transparent
+);
+$lsqybz_assembly_bg: (
+  _light: #79dae7,
+  _dark: #0e2a52
+);
+$lsqybz_person_bg_hover: (
+  _light: #dbf5f9,
+  _dark: transparent
+);
+$lsqybz_person_text_hover: (
+  _light: #37acbe,
+  _dark: #33ccff
+);
+
+$aggj_pdf_text: (
+  _light: #fff,
+  _dark: #010d2f
+);
+

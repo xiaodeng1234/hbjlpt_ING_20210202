@@ -1,0 +1,667 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+button {
+  outline: none;
+  border: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+// 高度100%
+.height-100 {
+  height: 100%;
+}
+// 文字超出隐藏多余部分
+.nobr {
+  display: inline-block;
+  // width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+// 使用边框
+.show-border {
+  border: 1px solid;
+  @include css-theme(border-color, $slyfl_border);
+}
+// 条件选择区
+.condition-box {
+  height: 40px;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: auto;
+  @include css-theme(background-color, $homepage_menu_bg);
+  .text-color {
+    @include css-theme(color, $el_input_text);
+  }
+  > div {
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .unit-box {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    .el-checkbox .el-checkbox__label {
+      padding-left: 5px;
+    }
+    .el-select.yw-select {
+      width: 100px;
+    }
+  }
+  .right-condition {
+    justify-content: flex-end;
+    > div {
+      margin-right: 10px;
+    }
+
+    .date-picker-box {
+      > span {
+        padding: 0 5px;
+      }
+      .el-select {
+        width: 100px;
+        padding: 0 2.5px;
+      }
+    }
+    .search-btn-box {
+      margin-left: 10px;
+      > button,
+      .popover-btn {
+        background-size: 100% 100%;
+        @include newBgImg('slyflmodule/jiaohu_10.png');
+        height: 25px;
+        cursor: pointer;
+        @include css-theme(color, $slyfl_search_btn_text);
+        padding: 0 10px;
+        &:hover {
+          @include css-theme(color, $slyfl_search_btn_text_hover);
+          @include newBgImg('slyflmodule/jiaohu_03.png');
+        }
+      }
+      .search {
+        width: 80px;
+        &::before {
+          display: inline-block;
+          content: '';
+          @include newBgImg('slyflmodule/jiaohu_16.png');
+          background-size: 100% 100%;
+          width: 12px;
+          height: 12px;
+          vertical-align: middle;
+          margin-right: 3px;
+        }
+        &:hover {
+          &::before {
+            @include newBgImg('slyflmodule/jiaohu_06.png');
+          }
+        }
+      }
+    }
+  }
+}
+// 日期类型选择
+.time-type-box {
+  display: flex;
+  // min-width: 105px;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 26px;
+  @include css-theme(background-color, $slyfl_rqlx_bg);
+  @include css-theme(border-color, $slyfl_rqlx_bg_active);
+  > span {
+    line-height: 26px;
+    min-width: 35px;
+    text-align: center;
+    cursor: pointer;
+    &.active {
+      @include css-theme(background-color, $slyfl_rqlx_bg_active);
+      @include css-theme(color, $el_dialog_body_bg);
+    }
+  }
+}
+// 表格
+.zh-table-box {
+  overflow: auto;
+  height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  &.dark-table {
+    .el-table__header-wrapper {
+      border-top: 1px solid#062950;
+      border-bottom: 3px solid #050a30;
+      box-sizing: border-box;
+    }
+  }
+  .el-table.el-table--fit {
+    @include css-theme(background-color, $count_dialog_td_bg);
+    tr {
+      background-color: transparent;
+    }
+    tbody tr {
+      td {
+        border-top: 0;
+      }
+      &:hover {
+        td {
+          @include css-theme(background-color, $td_bg_active);
+        }
+      }
+    }
+    .el-table__body-wrapper {
+      padding: 0 1px 1px 0;
+      box-sizing: border-box;
+    }
+    th,
+    td {
+      border: 1px dashed;
+      box-sizing: border-box;
+      @include css-theme(border-color, $count_dialog_table_border);
+      @include css-theme(color, $count_dialog_td_text);
+      text-align: center;
+      &.one-column {
+        text-align: left;
+      }
+      .el-table__expand-icon {
+        border: none;
+        width: 15px;
+        height: 15px;
+        margin-bottom: -2px;
+        margin-right: 4px;
+        transform: rotate(-45deg);
+        &.el-table__expand-icon--expanded {
+          transform: rotate(0);
+        }
+        .el-icon-arrow-right {
+          background-repeat: no-repeat;
+          @include bgImage('index/jx1.png');
+          width: 9px;
+          height: 10px;
+          display: inline-block;
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+    th {
+      line-height: 30px;
+      height: 30px;
+      font-size: 14px;
+      font-weight: 400;
+      @include css-theme(background-color, $count_dialog_th_bg);
+      @include css-theme(color, $count_dialog_th_text);
+      .cell {
+        border-left: none;
+      }
+      &:not(:nth-last-of-type(-n + 2)) {
+        border-right: 0;
+      }
+    }
+    .el-table__body-wrapper td {
+      &:not(:last-of-type) {
+        border-right: 0;
+        // border-top: 0;
+      }
+      line-height: 25px;
+      height: 25px;
+      @include css-theme(background-color, $count_dialog_td_bg);
+      .cell {
+        line-height: 20px;
+      }
+      .dw-color {
+        @include css-theme(color, $count_dialog_td_dw);
+      }
+    }
+    .el-table__body tr.current-row > td {
+      @include css-theme(background-color, $td_bg_active);
+      @include css-theme(color, $td_text_active);
+    }
+  }
+  table {
+    // border-collapse: collapse;
+    .cell {
+      padding: 0 5px;
+      box-sizing: border-box;
+    }
+  }
+  .el-table--border {
+    border-top: 0;
+  }
+  .el-table .cell,
+  .el-table th div,
+  .el-table--border td:first-child .cell,
+  .el-table--border th:first-child .cell {
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+  .index-column {
+    text-align: center !important;
+  }
+  .td-icon {
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-position: -224px 0;
+    @include bgImage('index/tree_icons.png');
+    margin-right: 4px;
+    &.td-icon-child {
+      background-position: -240px 0;
+    }
+  }
+  .text {
+    white-space: nowrap;
+  }
+}
+// 单位下拉
+.unit-tree-select {
+  @include css-theme(background-color, $el_el_button_primary_text);
+  .min_width150 {
+    width: 265px !important;
+    @include css-theme(background-color, $el_input_bg);
+  }
+}
+// 地图上方区域
+.map-top-box {
+  width: 100%;
+  height: 42%;
+  box-sizing: border-box;
+  padding: 5% 40px 3%;
+  .item-num-box {
+    width: calc(25% - 10px);
+    height: calc(50% - 5px);
+    position: relative;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+    box-sizing: border-box;
+    margin: 5px;
+    background-size: 100% 100%;
+    // background-repeat: no-repeat;
+    font-size: 16px;
+    @include css-theme(color, $slyfl_count_text);
+    @include css-theme(border-color, $slyfl_count_item_border);
+    @include css-theme(background-color, $homepage_menu_bg_hover);
+    &:hover {
+      @include newBgImg('slyflmodule/map_top_center_box_hover.png');
+      @include css-theme(color, $slyfl_count_num_hover);
+      .num-content {
+        @include css-theme(color, $slyfl_count_num_hover);
+      }
+    }
+    &.allow-pointer {
+      cursor: pointer;
+    }
+    .nobr {
+      max-width: 100%;
+      width: auto;
+    }
+    .num-content {
+      font-size: 28px;
+      @include css-theme(color, $slyfl_count_num);
+    }
+  }
+}
+// 取消下划线
+.ag-underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+// 背景图片按钮
+.ag-bg-btn {
+  background-size: 100% 100%;
+  @include newBgImg('slyflmodule/jiaohu_10.png');
+  height: 25px;
+  cursor: pointer;
+  @include css-theme(color, $slyfl_search_btn_text);
+
+  &:hover {
+    @include css-theme(color, $slyfl_search_btn_text_hover);
+    @include newBgImg('slyflmodule/jiaohu_03.png');
+  }
+}
+// 普通选择按钮
+.ag-dwxz-btn {
+  float: right;
+  border-radius: 4px;
+  cursor: pointer;
+  @include css-theme(color, $slyfl_accordion_text);
+  @include css-theme(background-color, $slyfl_rqlx_bg);
+  @include css-theme(border-color, $slyfl_rqlx_bg_active);
+  &:hover {
+    @include css-theme(background-color, $slyfl_rqlx_bg_active);
+    @include css-theme(color, $el_dialog_body_bg);
+  }
+}
+// 导出按钮
+.ag-export-btn {
+  float: right;
+  border-radius: 4px;
+  cursor: pointer;
+  @include css-theme(background-color, $slyfl_rqlx_bg_active);
+  @include css-theme(color, $el_dialog_body_bg);
+}
+// 块文字
+.ag-con-box {
+  padding: 5px 10px;
+  clear: both;
+  height: 30px;
+  .el-select {
+    width: 80px;
+    margin-left: 10px;
+    .el-input.el-input--suffix > .el-input__inner {
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+  > div:not(.ag-filter-btn-box) {
+    float: left;
+  }
+  .text-title {
+    @include css-theme(color, $tab_text_active);
+    font-size: 15px;
+  }
+  .time-type-box {
+    display: flex;
+    margin-left: 10px;
+    height: 20px;
+    &:first-child {
+      margin-left: 0;
+    }
+    > span {
+      line-height: 18px;
+      font-size: 12px;
+      min-width: 40px;
+    }
+  }
+}
+// 排序
+.ag-filter-btn-box {
+  float: right;
+  @include css-theme(color, $el_input_text);
+  > span {
+    cursor: pointer;
+    text-align: right;
+  }
+  &:hover {
+    @include css-theme(color, $slyfl_rqlx_bg_active);
+  }
+  .show-filter {
+    &:hover {
+      &.up-filter::before {
+        @include bgImage('slyflmodule/ph_buttton_button_up_hover.png');
+      }
+      &.down-filter::before {
+        @include bgImage('slyflmodule/ph_buttton_button_down_hover.png');
+      }
+    }
+    &.up-filter::before {
+      @include bgImage('slyflmodule/ph_buttton_button_up.png');
+    }
+    &.down-filter::afbeforeter {
+      @include bgImage('slyflmodule/ph_buttton_button_down.png');
+    }
+    &::before {
+      content: ' ';
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      margin-bottom: -2px;
+      margin-left: 2px;
+      margin-right: 3px;
+    }
+  }
+}
+
+// 重置样式
+.el-tree {
+  padding: 5px 0;
+  .el-tree-node:focus > .el-tree-node__content {
+    @include css-theme(background-color, $slyfl_select_tree_node_focus);
+  }
+  .el-tree-node__content {
+    @include css-theme(color, $el_input_text);
+    &:hover {
+      @include css-theme(color, $el_item_hover);
+      @include css-theme(background-color, $slyfl_select_tree_node_hover);
+    }
+    .el-tree-node__label {
+      font-size: 14px;
+    }
+    .el-tree-node__expand-icon {
+      box-sizing: border-box;
+    }
+  }
+  .el-tree-node.is-current > .el-tree-node__content {
+    @include css-theme(color, $slyfl_select_tree_node_text);
+    @include css-theme(background-color, $slyfl_select_tree_node_hover);
+    &:hover {
+      @include css-theme(color, $el_item_hover);
+    }
+  }
+}
+.el-checkbox__input {
+  margin-bottom: 0;
+  .el-checkbox__inner {
+    @include css-theme(background-color, $slyfl_rqlx_btn_bg);
+  }
+  &.is-checked .el-checkbox__inner,
+  &.is-indeterminate .el-checkbox__inner {
+    @include css-theme(border-color, $slyfl_rqlx_bg_active);
+    @include css-theme(background-color, $slyfl_rqlx_bg_active);
+  }
+}
+.el-checkbox {
+  .el-checkbox__input,
+  .el-checkbox__label {
+    @include css-theme(color, $el_input_text);
+  }
+  .el-checkbox__input.is-checked + .el-checkbox__label {
+    @include css-theme(color, $el_input_text);
+  }
+  .el-checkbox__input.is-disabled .el-checkbox__inner {
+    @include css-theme(border-color, $el_checkbox_bg_disabled);
+    @include css-theme(background-color, $el_checkbox_bg_disabled);
+    &::after {
+      border: none;
+    }
+  }
+}
+.el-radio {
+  .el-radio__inner {
+    @include css-theme(background-color, $slyfl_rqlx_btn_bg);
+  }
+  .el-radio__input.is-checked {
+    .el-radio__inner {
+      @include css-theme(border-color, $slyfl_rqlx_bg_active);
+      @include css-theme(background-color, $slyfl_rqlx_bg_active);
+    }
+  }
+  .el-radio__input.is-checked + .el-radio__label,
+  .el-radio__label {
+    @include css-theme(color, $el_input_text);
+  }
+}
+.el-select-dropdown__item {
+  font-size: 14px;
+  @include css-theme(color, $el_input_text);
+  &.selected,
+  &.hover {
+    @include css-theme(background-color, $slyfl_select_tree_node_hover);
+  }
+  &.hover {
+    @include css-theme(color, $el_item_hover);
+  }
+}
+.el-dialog {
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 1px solid;
+  overflow: hidden;
+  @include css-theme(border-color, $el_dialog_border);
+  .el-dialog__header {
+    @include css-theme(background-color, $el_dialog_header_bg);
+    .el-dialog__title {
+      @include css-theme(color, $el_dialog_header_text);
+    }
+  }
+  .el-dialog__body {
+    @include css-theme(color, $slyfl_select_tree_node_text);
+    @include css-theme(background-color, $el_dialog_body_bg);
+  }
+  .el-dialog__headerbtn {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover,
+    &:focus {
+      @include css-theme(background-color, $el_dialog_header_close_hover);
+    }
+    .el-dialog__close {
+      @include css-theme(color, $el_dialog_header_close);
+    }
+  }
+  .el-dialog__footer {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    @include css-theme(background-color, $el_dialog_footer_bg);
+  }
+}
+.el-input__inner {
+  @include css-theme(border-color, $el_input_border);
+  @include css-theme(color, $el_input_text);
+  @include css-theme(background-color, $el_input_bg);
+  height: 30px;
+}
+.el-input.el-input--suffix > .el-input__inner {
+  height: 30px;
+  line-height: 30px;
+  @include css-theme(border-color, $el_input_border);
+  @include css-theme(color, $el_input_text);
+  @include css-theme(background-color, $el_input_bg);
+}
+.el-date-editor {
+  &.el-input,
+  &.el-input__inner {
+    width: 140px;
+  }
+}
+.el-input--prefix .el-input__inner {
+  padding-left: 10px;
+}
+.el-input__prefix {
+  right: 5px;
+  left: auto;
+  cursor: pointer;
+  .el-icon-date::before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    @include newBgImg('slyflmodule/xuan_18.png');
+    background-size: 100% 100%;
+  }
+  &:hover {
+    .el-icon-date::before {
+      @include newBgImg('slyflmodule/xuan_18_hover.png');
+    }
+  }
+}
+
+.el-button--primary {
+  @include css-theme(background-color, $el_el_button_primary_bg);
+  @include css-theme(color, $el_el_button_primary_text);
+}
+.el-popover,
+.el-picker-panel,
+.el-select-dropdown {
+  @include css-theme(background-color, $el_el_button_primary_text);
+}
+.el-popper[x-placement^='bottom'] .popper__arrow {
+  border-bottom-color: #b3c8d4;
+  &::after {
+    @include css-theme(border-bottom-color, $el_popper__arrow);
+  }
+}
+.el-popper[x-placement^='top'] .popper__arrow::after {
+  @include css-theme(border-top-color, $el_popper__arrow);
+}
+.el-tooltip__popper.is-dark {
+  border: 1px solid #e4e7ed;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  @include css-theme(color, $el_input_text);
+  @include css-theme(background-color, $el_el_button_primary_text);
+  .popper__arrow {
+    border-top-color: #ebeef5;
+    &::after {
+      @include css-theme(border-top-color, $el_popper__arrow);
+    }
+  }
+}
+.el-popover.el-popover--plain {
+  .el-popover__title {
+    @include css-theme(background-color, $el_popover--plain_title_bg);
+    @include css-theme(color, $el_dialog_header_text);
+    box-sizing: border-box;
+  }
+  &[x-placement^='bottom'] .popper__arrow {
+    top: -7px;
+    &::after {
+      @include css-theme(border-bottom-color, $el_popover--plain_title_bg);
+    }
+  }
+}
+.el-date-picker__header-label,
+.el-date-table th,
+.el-picker-panel {
+  @include css-theme(color, $logo_dropdown);
+}
+.el-date-picker__header-label:hover,
+.el-date-table td.available:hover {
+  @include css-theme(color, $el_datepiccker_text_hover);
+}
+.el-scrollbar__thumb {
+  @include css-theme(background-color, $scrollbar_thumb);
+}
+
+.pagefile_load {
+  .el-loading-spinner {
+    width: auto;
+    @include css-theme(background-color, $el_el_button_primary_text);
+    .el-loading-text {
+      @include css-theme(color, $el_input_text);
+    }
+  }
+}
+// 定义滑块 内阴影+圆角
+::-webkit-scrollbar-thumb {
+  @include css-theme(background-color, $scrollbar_thumb);
+}
+::-webkit-scrollbar-thumb:hover {
+  @include css-theme(background-color, $scrollbar_thumb);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-corner {
+  @include css-theme(background-color, $el_el_button_primary_text);
+}

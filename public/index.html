@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <script src="<%= BASE_URL %>config/config.js"></script>
+  <% if (htmlWebpackPlugin.options.env==='production') { %>
+  <script src="<%= BASE_URL %>config/config.prod.js"></script>
+  <% } %>
+</head>
+<body>
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+    Please enable it to continue.</strong>
+</noscript>
+<div id="app">
+  <!--<div>可以在此处编写vue加载动画，vue加载完成后，会自动被销毁，无需手动销毁
+  生产环境下，vue加载时间比较短，小项目某些时候可能会一闪而过，甚至不显示</div>-->
+</div>
+<!-- built files will be auto injected -->
+</body>
+</html>

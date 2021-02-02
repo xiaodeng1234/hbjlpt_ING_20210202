@@ -1,0 +1,68 @@
+/**
+ * @Author 蔡威威
+ * @Date  2019.4.8
+ */
+
+// 主色
+$essential_color: #165AC6;         /* 页头、鼠标悬停文字色、标签页文字（选中）、一级菜单文字悬停色 */
+$essential_color1: green;          /* 页头、鼠标悬停文字色、标签页文字（选中） */
+$title_line_color: #4084F0;        /* 标签页边框（选中）、控件（选中）、小标题前点缀、链接、功能弹窗标题栏、一级菜单文字色 */
+$btn_color: #1B9CFF;               /* 按钮、部分icon */
+// 辅助色
+$list_bg_color_active: #82A6DF;    /* 列表选中、部分icon */
+$assist_color: #C4DCF4;            /* 部分背景、按钮 */
+$bg_color_active: #78A1CB;         /* 选择器（选中）、选项卡（选中）、滚动条 */
+$list_bg_color: #D7E5F9;           /* 标题栏背景、列表表头、选项卡（未选中）、目录树（选中） */
+$bg_color: #ECF1FA;                /* 大背景、目录树（悬停）、列表悬停色、功能弹窗按钮底色 */
+$zebra_color: #F3F6F8;             /* 列表间隔色（斑马纹） */
+$default_border_color: #EBF4FE;    /* 边框线按钮填充 */
+$icon_color: #7F92BF;              /* icon */
+$border_color: #B3C8D4;            /* 边框线 */
+$readonly_color: #EBEFF3;          /* 只读颜色 */
+$form_bg_color: #DCDCDC;           /* wps、form背景色 */
+// 字体色
+$title_font_color: #2D405E;        /* 二级标题、三级标题、醒目文字 */
+$font_color: #4F5E7B;              /* 内容 */
+$assist_font_color: #879BBA;       /* 辅助、说明 */
+$input_font_color: #5C79B0;        /* 内容编辑色、选择器文字、标签页未选中文字、线框按钮文字 */
+$placeholder_font_color: #BAC9DF;  /* 输入框提示文字 */
+$disabled_font_color: #CAD0D7;     /* 不可交互色 */
+// 提示色
+$caution_color: #E6A23C;           /* 警示 */
+$success_color: #1DC5B3;           /* 正确 */
+$error_color: #F86359;             /* 错误 */
+$correction_color: #FFFF00;        /* 纠错 */
+// 字体大小
+$fontsize_mini: 12px;                /* 标签 */
+$fontsize_small: 14px;               /* 注释、备注性信息 */
+$fontsize_default: 14px;             /* 默认字号、标题、导航、弹窗标题 */
+$fontsize_title: 16px;
+$fontsize_medium: 18px;              /* 个别强调 */
+$fontsize_big: 24px;                 /* 缺省页提示、个别强调 */
+// 模块内边距
+$padding: 10px;                      /* 模块内边距 */
+$dialog_padding: 15px;               /* 弹出框内边距 */
+
+$area_title_bg_color: #eef6f9;     /* 容器头部标题栏背景颜色 */
+$area_show_bg_color: #fff;        /* 功能显示区域背景颜色 */
+$active_bg_color: #dae3f2;        /* 激活状态背景颜色 */
+$table_border_color: #d6dee3;     /* 表格边框颜色 */
+$add_zhaiyao_font_color: #4383f1;  /* 添加摘要文字颜色 */
+$error_flag_color: #f56c6c;   /* ‘*’颜色 */
+
+//涉案人员各背景颜色
+$xyr_bg_color: rgba(248, 99, 53, .2);
+$xyr_border_color: #f86335;
+$zr_bg_color: rgba(120, 183, 222, .2);
+$zr_border_color: #78B7DE;
+$qtry_bg_color: rgba(219, 181, 26, .2);
+$qtry_border_color: #DBB51A;
+$bhr_bg_color: rgba(65, 189, 44, .2);
+$bhr_border_color: #41BD2C;
+
+// 布局通用样式
+$left_color: #24dcf6;
+$center_color: #fa8460;
+$right_color: #9bf021;
+$menu_left_color: #1C7FBC;
+

@@ -1,0 +1,41 @@
+/**
+ * @Author 蔡威威
+ * @Date  2019.3.30
+ */
+/*通过该函数设置主题颜色，后期方便统一管理*/
+@import './variable.scss';
+@import './theme.scss';
+
+/* 图片 */
+@mixin bgImage($url) {
+  background-image: url('/images/default/'+$url);
+}
+@mixin newBgImg($url) {
+  background-image: url('/images/light/'+$url);
+  [data-theme='dark'] & {
+    background-image: url('/images/dark/'+$url);
+  }
+}
+@mixin pcContent($url) {
+  content: url('/images/light/'+$url);
+  [data-theme='dark'] & {
+    content: url('/images/dark/'+$url);
+  }
+}
+
+/* 色值 */
+@mixin css($attribute, $color) {
+  #{$attribute}: $color;
+  [data-theme='red'] & {
+    @if ($color==$essential_color) {
+      #{$attribute}: $essential_color1;
+    }
+  }
+}
+
+@mixin css-theme($attribute, $color) {
+  #{$attribute}: map-get($color, _light);
+  [data-theme='dark'] & {
+    #{$attribute}: map-get($color, _dark);
+  }
+}
