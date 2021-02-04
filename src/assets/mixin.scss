@@ -8,7 +8,9 @@
 
 /* 图片 */
 @mixin bgImage($url) {
-  background-image: url('/images/default/'+$url);
+  background-image: url('/images/'+$url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 @mixin newBgImg($url) {
   background-image: url('/images/light/'+$url);

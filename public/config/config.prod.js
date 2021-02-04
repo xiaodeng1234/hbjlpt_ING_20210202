@@ -1,2 +1,2 @@
 //开发环境地址
-REMOTE_ADDR = 'http://192.168.1.89:9009'
+REMOTE_ADDR = 'http://localhost:8089'
