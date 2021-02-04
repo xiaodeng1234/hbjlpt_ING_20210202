@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Api from '../util/api/api'
 
 Vue.use(Vuex)
 
@@ -8,10 +7,10 @@ Vue.use(Vuex)
 const dynamicModules = {}
 const files = require.context('.', true, /\.js$/)
 const dynamicImportModules = (modules, file, splits, index = 0) => {
-  if (index == 0 && splits[0] == 'modules') {
+  if (index == 0 && splits[0] == 'module' || splits[0] == 'mutation-types') {
     ++index
   }
-  if (splits.length == index + 1) {
+  if (splits.length -1 == index + 1) {
     if ('index' == splits[index]) {
       modules[splits[index - 1]] = files(file).default
     } else {

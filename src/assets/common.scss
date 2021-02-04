@@ -36,86 +36,6 @@ ul {
   border: 1px solid;
   @include css-theme(border-color, $slyfl_border);
 }
-// 条件选择区
-.condition-box {
-  height: 40px;
-  display: flex;
-  margin-bottom: 10px;
-  justify-content: space-between;
-  align-items: center;
-  overflow-y: hidden;
-  overflow-x: auto;
-  @include css-theme(background-color, $homepage_menu_bg);
-  .text-color {
-    @include css-theme(color, $el_input_text);
-  }
-  > div {
-    min-height: 30px;
-    display: flex;
-    align-items: center;
-  }
-  .unit-box {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    .el-checkbox .el-checkbox__label {
-      padding-left: 5px;
-    }
-    .el-select.yw-select {
-      width: 100px;
-    }
-  }
-  .right-condition {
-    justify-content: flex-end;
-    > div {
-      margin-right: 10px;
-    }
-
-    .date-picker-box {
-      > span {
-        padding: 0 5px;
-      }
-      .el-select {
-        width: 100px;
-        padding: 0 2.5px;
-      }
-    }
-    .search-btn-box {
-      margin-left: 10px;
-      > button,
-      .popover-btn {
-        background-size: 100% 100%;
-        @include newBgImg('slyflmodule/jiaohu_10.png');
-        height: 25px;
-        cursor: pointer;
-        @include css-theme(color, $slyfl_search_btn_text);
-        padding: 0 10px;
-        &:hover {
-          @include css-theme(color, $slyfl_search_btn_text_hover);
-          @include newBgImg('slyflmodule/jiaohu_03.png');
-        }
-      }
-      .search {
-        width: 80px;
-        &::before {
-          display: inline-block;
-          content: '';
-          @include newBgImg('slyflmodule/jiaohu_16.png');
-          background-size: 100% 100%;
-          width: 12px;
-          height: 12px;
-          vertical-align: middle;
-          margin-right: 3px;
-        }
-        &:hover {
-          &::before {
-            @include newBgImg('slyflmodule/jiaohu_06.png');
-          }
-        }
-      }
-    }
-  }
-}
 // 日期类型选择
 .time-type-box {
   display: flex;
@@ -190,7 +110,6 @@ ul {
         }
         .el-icon-arrow-right {
           background-repeat: no-repeat;
-          @include bgImage('index/jx1.png');
           width: 9px;
           height: 10px;
           display: inline-block;
@@ -261,7 +180,6 @@ ul {
     vertical-align: top;
     background-repeat: no-repeat;
     background-position: -224px 0;
-    @include bgImage('index/tree_icons.png');
     margin-right: 4px;
     &.td-icon-child {
       background-position: -240px 0;
@@ -279,66 +197,10 @@ ul {
     @include css-theme(background-color, $el_input_bg);
   }
 }
-// 地图上方区域
-.map-top-box {
-  width: 100%;
-  height: 42%;
-  box-sizing: border-box;
-  padding: 5% 40px 3%;
-  .item-num-box {
-    width: calc(25% - 10px);
-    height: calc(50% - 5px);
-    position: relative;
-    float: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 15px;
-    box-sizing: border-box;
-    margin: 5px;
-    background-size: 100% 100%;
-    // background-repeat: no-repeat;
-    font-size: 16px;
-    @include css-theme(color, $slyfl_count_text);
-    @include css-theme(border-color, $slyfl_count_item_border);
-    @include css-theme(background-color, $homepage_menu_bg_hover);
-    &:hover {
-      @include newBgImg('slyflmodule/map_top_center_box_hover.png');
-      @include css-theme(color, $slyfl_count_num_hover);
-      .num-content {
-        @include css-theme(color, $slyfl_count_num_hover);
-      }
-    }
-    &.allow-pointer {
-      cursor: pointer;
-    }
-    .nobr {
-      max-width: 100%;
-      width: auto;
-    }
-    .num-content {
-      font-size: 28px;
-      @include css-theme(color, $slyfl_count_num);
-    }
-  }
-}
 // 取消下划线
 .ag-underline {
   text-decoration: underline;
   cursor: pointer;
-}
-// 背景图片按钮
-.ag-bg-btn {
-  background-size: 100% 100%;
-  @include newBgImg('slyflmodule/jiaohu_10.png');
-  height: 25px;
-  cursor: pointer;
-  @include css-theme(color, $slyfl_search_btn_text);
-
-  &:hover {
-    @include css-theme(color, $slyfl_search_btn_text_hover);
-    @include newBgImg('slyflmodule/jiaohu_03.png');
-  }
 }
 // 普通选择按钮
 .ag-dwxz-btn {
@@ -395,44 +257,6 @@ ul {
     }
   }
 }
-// 排序
-.ag-filter-btn-box {
-  float: right;
-  @include css-theme(color, $el_input_text);
-  > span {
-    cursor: pointer;
-    text-align: right;
-  }
-  &:hover {
-    @include css-theme(color, $slyfl_rqlx_bg_active);
-  }
-  .show-filter {
-    &:hover {
-      &.up-filter::before {
-        @include bgImage('slyflmodule/ph_buttton_button_up_hover.png');
-      }
-      &.down-filter::before {
-        @include bgImage('slyflmodule/ph_buttton_button_down_hover.png');
-      }
-    }
-    &.up-filter::before {
-      @include bgImage('slyflmodule/ph_buttton_button_up.png');
-    }
-    &.down-filter::afbeforeter {
-      @include bgImage('slyflmodule/ph_buttton_button_down.png');
-    }
-    &::before {
-      content: ' ';
-      display: inline-block;
-      width: 8px;
-      height: 14px;
-      margin-bottom: -2px;
-      margin-left: 2px;
-      margin-right: 3px;
-    }
-  }
-}
-
 // 重置样式
 .el-tree {
   padding: 5px 0;
@@ -570,25 +394,6 @@ ul {
 .el-input--prefix .el-input__inner {
   padding-left: 10px;
 }
-.el-input__prefix {
-  right: 5px;
-  left: auto;
-  cursor: pointer;
-  .el-icon-date::before {
-    content: '';
-    display: inline-block;
-    width: 13px;
-    height: 13px;
-    @include newBgImg('slyflmodule/xuan_18.png');
-    background-size: 100% 100%;
-  }
-  &:hover {
-    .el-icon-date::before {
-      @include newBgImg('slyflmodule/xuan_18_hover.png');
-    }
-  }
-}
-
 .el-button--primary {
   @include css-theme(background-color, $el_el_button_primary_bg);
   @include css-theme(color, $el_el_button_primary_text);

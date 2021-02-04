@@ -29,6 +29,9 @@ requireComponents.keys().forEach(fileName => {
   // 组件挂载
   Vue.component(comName, reqCom.default || reqCom)
 })
-
+function alertBox (message) {
+  ElementUI.Message.error(message)
+}
 Vue.prototype.$api = Api
 Vue.prototype.$request = request
+Vue.prototype.$AlertBox = alertBox
