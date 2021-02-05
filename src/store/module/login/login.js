@@ -23,7 +23,6 @@ export default {
       try {
         dwData = await Api.getLoginDwTree()
       } catch (err) {
-        console.log(err)
       }
       commit(types.SAVE_DWBM_TREE, dwData)
     },
