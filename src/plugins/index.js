@@ -10,18 +10,26 @@ import '../assets/main.scss'
 import '../assets/common.scss'
 import Input from 'ant-design-vue/lib/input'
 import echarts from 'echarts'
+import Directives from '../derective'
+import Filter from '@/filters'
+import Mixins from '@/mixins'
 Vue.prototype.$echarts = echarts
 
 Vue.use(VModal)
 Vue.use(ElementUI)
 Vue.use(Input)
-
+Vue.use(Directives)
+Object.keys(Filter).forEach(key => {
+  Vue.filter(key, Filter[key])
+})
+Vue.mixin(Mixins)
 const requireComponents = require.context('../components', true, /\.vue/)
 // 打印结果
 // 遍历出每个组件的路径
 requireComponents.keys().forEach(fileName => {
   // 组件实例
   const reqCom = requireComponents(fileName)
+  console.log(fileName)
   // 截取路径作为组件名
   const reqComName = fileName.split('/')[1]
   // 去除组件名中.vue字符串

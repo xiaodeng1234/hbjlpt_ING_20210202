@@ -11,7 +11,6 @@ import axios from 'axios'
  * @returns {Promise<any>} 就扣返回结果
  */
 export default ({url, data, method, responseType, headers}) => {
-
   headers || (headers = {
     'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
   })
@@ -23,8 +22,9 @@ export default ({url, data, method, responseType, headers}) => {
   if (responseType) fetchOptions.responseType = responseType
   if (headers) fetchOptions.headers = headers
   // 超时
-  // axios.defaults.timeout = 300000
-  if (/get|delete/i.test(method)) {
+  axios.defaults.timeout = 30000
+  // 一般get 和 delete 请求
+  if (/^get$|^delete$/i.test(method)) {
     if (typeof data === 'string') {
       url = `${url}/${data}`
     } else if (typeof data === 'object') {
@@ -39,7 +39,8 @@ export default ({url, data, method, responseType, headers}) => {
       return err.response && err.response.data
     })
   }
-  if (/post|put/i.test(method)) {
+  // payload 的 post 和 put 请求
+  if (/^post$|^put$/i.test(method)) {
     fetchOptions.body = data
     return axios[method.toLowerCase()](url, data).then(res => {
       return res.data
@@ -47,8 +48,20 @@ export default ({url, data, method, responseType, headers}) => {
       return err.response && err.response.data
     })
   }
-
-  // return fetch(url, fetchOptions).then(res => {
-  //   return res.json()
-  // })
+  // 设置formData的请求方式
+  if(/^postform$/i.test(method)) {
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+    axios.defaults.transformRequest = [(data) => {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      return ret
+    }]
+    return axios['POST'.toLowerCase()](url, data).then(res => {
+      return res.data
+    }).catch(err => {
+      return err.response && err.response.data
+    })
+  }
 }

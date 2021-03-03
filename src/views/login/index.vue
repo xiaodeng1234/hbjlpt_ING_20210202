@@ -10,20 +10,21 @@
         </div>
         <div class="in-input">
           <img src="/images/login/user.png" class="login_icon"/>
-          <el-input @keyup.enter.native="signIn(login)" class="login-dw" v-model="login.name" placeholder="姓名"></el-input>
+          <el-input @keyup.enter.native="loginMethod" v-focus class="login-dw" v-model="login.name" placeholder="姓名"></el-input>
         </div>
         <div class="in-input">
           <img src="/images/login/pwd.png" class="login_icon"/>
-          <el-input @keyup.enter.native="signIn(login)" type="password" class="login-dw" v-model="login.pwd" placeholder="密码"></el-input>
+          <el-input @keyup.enter.native="loginMethod" type="password" class="login-dw" v-model="login.pwd" placeholder="密码"></el-input>
         </div>
-        <div class="login-btn" @click="signIn(login)">登 录</div>
+        <div class="login-btn" @click="loginMethod">登 录</div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Cookies from 'js-cookie'
 import { createNamespacedHelpers } from 'vuex'
-const { mapState, mapActions } = createNamespacedHelpers('login')
+const { mapState, mapActions, mapMutations } = createNamespacedHelpers('login')
 export default {
   name: 'login',
   data() {
@@ -43,6 +44,12 @@ export default {
     this.getDwTree()
   },
   mounted() {
+    // 从Cookie拿取登录信息
+    if (Cookies.get('loginMsg')) {
+      let { DWBM, MC } = Cookies.getJSON('loginMsg')
+      this.login.dwbm = DWBM
+      this.login.name = MC
+    }
   },
   beforeDestroy () {
   },
@@ -55,7 +62,38 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getDwTree', 'signIn']),
+    ...mapActions(['getDwTree', 'signIn', 'getFuncationList']),
+    ...mapMutations(['SAVE_LOGIN_INFO']),
+    // 登录
+    async loginMethod () {
+      let { name: username, dwbm, pwd: password} = this.login
+      if(!username) {
+        this.$Message.error('请输入用户名！')
+        return
+      }
+      if (!dwbm) {
+        this.$Message.error('请选择单位！') 
+        return
+      }
+      if (!password) {
+        this.$Message.error('请输入密码！') 
+        return
+      }
+      let responseData = await this.signIn(this.login)
+      if(responseData.status === 200) {
+        // 保存到cookie
+        Cookies.set(
+          'loginMsg', responseData.value,
+          {
+            expires: 9999
+          }
+        )
+        // 保存登录信息到vuex
+        this.SAVE_LOGIN_INFO(responseData.value || {})
+        this.getFuncationList()
+        this.$router.push('/home')
+      }
+    }
   },
 }
 </script>

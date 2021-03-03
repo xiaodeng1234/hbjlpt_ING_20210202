@@ -1,10 +1,17 @@
 import allApi from "./endpoint";
 import request from "./request";
 import store from "../../store";
+import { Message } from 'element-ui';
 async function server(p, data) {
   // 此处可做一些拦截，比如三级错误处理
   let res = await request({...allApi[p], data})
   if(res) {
+    if(res.status && res.status !== 200) {
+      Message({
+        message: res.note,
+        type: 'error'
+      },true)
+    }
     return res
   } else {
     console.error(`调用接口${allApi[p].url}`, `${allApi[p].label}出错`,'参数:', data, res)

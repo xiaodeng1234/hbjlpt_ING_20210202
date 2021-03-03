@@ -15,9 +15,13 @@ export default {
   mutations: {
     [types.SAVE_DWBM_TREE] (state, data = []) {
       state.loginDwData = data || []
+    },
+    [types.SAVE_LOGIN_INFO] (state, data = {}) {
+      state.userInfo = data || {}
     }
   },
   actions: {
+    // 获取单位i树
     async getDwTree ({ state, commit }) {
       let dwData = []
       try {
@@ -26,18 +30,24 @@ export default {
       }
       commit(types.SAVE_DWBM_TREE, dwData)
     },
-    async signIn ({ commit}, request) {
+    // 登录
+    async signIn ({ commit }, request) {
       let loginRespose = {}
       const {name: username, dwbm, pwd: password} = request
       try {
-        loginRespose = await Api.signIn({ request, dwbm, password })
-        if(loginRespose.status === 500) throw new Error(loginRespose.note)
+        loginRespose = await Api.signIn({ username, dwbm, password })
       } catch (err) {
-        Message({
-          message: err,
-          type: 'error'
-        },true)
       }
+      return loginRespose
+    },
+    // 获取功能列表
+    async getFuncationList ({ commit }) {
+      let userFunctionList = {}
+      try {
+        userFunctionList = await Api.functionList()
+      } catch (error) {
+      }
+      commit(types.SAVE_FUNCTION_LIST, userFunctionList, { root: true })
     }
   }
 }

@@ -1,7 +1,7 @@
 function getSum (a, b) {
   return a + b
 }
-const formatterInfo = {
+const mixin = {
   methods: {
     // 过千数据进行格式化
     thousandFormatter (params, index) {
@@ -51,4 +51,4 @@ const formatterInfo = {
     }
   }
 }
-export default formatterInfo
+export default mixin

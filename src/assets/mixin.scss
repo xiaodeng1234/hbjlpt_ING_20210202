@@ -24,6 +24,22 @@
     content: url('/images/dark/'+$url);
   }
 }
+@mixin menuItem {
+  height: 68px;
+  line-height: 68px;
+  padding: 0 13px; 
+  background-color: transparent !important;
+  &:hover {
+    span {
+      font-weight: bold;
+      color: white;
+    }
+  }
+  span {
+    font-size: 16px;
+    font-weight: normal;
+  }
+}
 
 /* 色值 */
 @mixin css($attribute, $color) {

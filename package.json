@@ -17,10 +17,13 @@
     "js-md5": "^0.7.3",
     "pinyin-match": "^1.1.1",
     "sass-resources-loader": "^2.0.3",
+    "uuid": "^8.3.2",
     "vue": "^2.6.11",
     "vue-js-modal": "^2.0.0-rc.3",
+    "vue-persist": "^0.4.0",
     "vue-router": "^3.3.2",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",

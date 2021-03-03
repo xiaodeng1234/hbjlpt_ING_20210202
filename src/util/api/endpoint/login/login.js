@@ -10,9 +10,19 @@ export default {
   },
   // 用户登录
   signIn: {
-    method: 'POST',
+    method: 'POSTFORM',
     label: '用户登录',
-    endpoint: '/account/signIn'
+    endpoint: '/account/signIn',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+  },
+  functionList: {
+    method: 'GET',
+    label: '获取用户功能列表',
+    endpoint: '/account/functionList'
   }
 }
   
