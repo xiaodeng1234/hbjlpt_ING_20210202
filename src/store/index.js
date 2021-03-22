@@ -32,6 +32,7 @@ const deepTraversal = (arr) => {
   arr.map(cur => {
     cur.id = uuidv4()
     cur.text = cur.flmc || cur.gnmc
+    cur.gnct = cur.gnct?.replace(/\.\/|\.html/g, '')
     if(cur.functionList && cur.functionList.length > 0) {
       deepTraversal(cur.functionList)
     }

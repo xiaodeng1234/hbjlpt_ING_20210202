@@ -29,7 +29,6 @@ const requireComponents = require.context('../components', true, /\.vue/)
 requireComponents.keys().forEach(fileName => {
   // 组件实例
   const reqCom = requireComponents(fileName)
-  console.log(fileName)
   // 截取路径作为组件名
   const reqComName = fileName.split('/')[1]
   // 去除组件名中.vue字符串

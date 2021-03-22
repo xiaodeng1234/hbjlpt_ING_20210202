@@ -48,6 +48,22 @@ const mixin = {
         }（${sum}${unit}）`
       }
       return str
+    },
+    //获取当年1月1号和当天日期
+    getThisYearTime () {
+      let now = new Date()
+      let year = now.getFullYear()
+      let month = now.getMonth() + 1
+      if (month < 10) {
+          month = "0" + month
+      }
+      let date = now.getDate()
+      if (date < 10) {
+          date = "0" + date
+      }
+      let endDate = year + "-" + month + "-" + date
+      let startDate = year + "-" + "01" + "-" + "01"
+      return [startDate, endDate]
     }
   }
 }

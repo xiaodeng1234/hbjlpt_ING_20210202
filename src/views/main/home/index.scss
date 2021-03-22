@@ -1,5 +1,38 @@
 .home {
   height: 100%;
   width: 100%;
-  @include bgImage('/default/05.png')
+  & > div {
+    height: 100%;
+    float: left;
+  }
+  &_left {
+    width: 25%;
+    position: relative;
+  }
+  &_center {
+    width: 48%;
+    margin: 0 1%;
+    .home_center {
+      height: 100%;
+      &_search {
+        height: 58px;
+        padding: 7px 10px;
+        background: rgba(18,78,138,0.3);
+      }
+    }
+  }
+  &_right {
+    width: 25%;
+    position: relative;
+  }
+  .home-item-one {
+    height: 100%;
+    width: 100%;
+  }
+  .home-itemk {
+    width: calc(100% - 2px);
+    float: left;
+    height: calc(100% - 2px);
+    background-color: rgba(2, 23, 44, .58);
+  }
 }

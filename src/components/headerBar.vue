@@ -69,6 +69,7 @@ export default {
   created () {
   },
   mounted () {
+    console.log(this.menuList)
   },
   computed: {
     ...mapState(['menuList'])
@@ -136,6 +137,7 @@ export default {
     width: 337px;
     height: 103px;
     @include bgImage('/header/04.jpg');
+    background-size: 101.6% 100%;
     & > div {
       float: right;
       width: 29px;

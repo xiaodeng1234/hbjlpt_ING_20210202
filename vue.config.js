@@ -9,7 +9,7 @@ module.exports = {
   chainWebpack: config => {
     config.plugin('html').tap(args => {
       args[0].env = process.env.NODE_ENV
-      args[0].title = '湖北检律平台'
+      args[0].title = '湖北执业权利保障监督平台'
       return args
     })
     // 全局解析Sass

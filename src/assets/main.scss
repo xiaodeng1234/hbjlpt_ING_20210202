@@ -616,7 +616,7 @@ html,body,div,p,ul,ol,li{margin:0;padding:0;}
     }
 }
 .el-select-dropdown{margin-top: 6px;z-index: 90000!important;}
-.el-picker-panel,.el-time-panel{@include css(border, 1px solid $border_color);box-shadow: none;border-radius: 3px;z-index: 90000!important;}
+.el-picker-panel,.el-time-panel{@include css(border, 1px solid #3aa4e7);color: #52aff6 !important;box-shadow: none;border-radius: 3px;z-index: 90000!important;background-color: rgba(18,78,138,1) !important;}
 // ===============树节点虚线样式===============
 .el-tree-node {position: relative;}
 .el-tree-node__children {padding-left: 18px;}
@@ -650,9 +650,10 @@ html,body,div,p,ul,ol,li{margin:0;padding:0;}
   .el-time-panel__btn{@include css(color,$assist_font_color);font-size: 16px;}
   .el-time-spinner__item:hover:not(.disabled):not(.active){ background:rgba(0,0,0,0);@include css(color, $essential_color);}
 }
-.el-date-editor .el-range-input{width: calc(50% - 25px);}
+.el-date-editor .el-range-input{width: calc(50% - 25px);background: transparent;color: #52aff6;}
 .el-date-editor .el-input__inner:read-only{@include css(background, $readonly_color);@include css(color,$input_font_color);border: none;}
 .el-date-editor.el-input{ .el-input__icon{line-height: 35px;}.el-input__icon.el-icon-time:before{ @include css(color,$border_color); }}
+.el-range-input::placeholder {color: #3aa4e7 !important;}
 // 时间控件样式
 .el-date-table  {
   td.current:not(.disabled){
@@ -688,19 +689,21 @@ html,body,div,p,ul,ol,li{margin:0;padding:0;}
 .el-icon-date:before{@include css(color, $list_bg_color_active);}
 .el-date-table th{@include css(border-bottom, solid 1px $border_color);}
 .el-date-range-picker__content.is-left{@include css(border-right, solid 1px $border_color);}
-.el-date-editor.el-range-editor.el-input__inner.el-date-editor--daterange{@include css(border, 1px solid $border_color);background: #fff;
-  .el-input__icon.el-range__icon.el-icon-date{line-height: 26px;}
-  .el-range-separator{width: 26px;line-height: 26px;}
-  .el-range__close-icon{line-height: 26px;}
-  &:hover{@include css(border, 1px solid $assist_font_color);}
+.el-date-editor.el-range-editor.el-input__inner.el-date-editor--daterange{@include css(border, 1px solid #3aa4e7);background: rgba(18, 78, 138, 0.3);
+  .el-input__icon.el-range__icon.el-icon-date{line-height: 22px;}
+  .el-range-separator{width: 26px;line-height: 22px;color: #52aff6}
+  .el-range__close-icon{line-height: 22px;}
+  &:hover{@include css(border, 1px solid #3aa4e7);}
 }
+.el-date-table td.in-range div, .el-date-table td.in-range div:hover, .el-date-table.is-week-mode .el-date-table__row.current div, .el-date-table.is-week-mode .el-date-table__row:hover div {background: transparent;}
+.el-date-picker__header-label, .el-date-table th, .el-picker-panel {color: #52aff6 !important;}
 .el-date-editor.el-range-editor.el-input__inner.el-date-editor--datetimerange{
   .el-input__icon.el-range__icon.el-icon-time{line-height: 26px;}
   .el-range-separator{width: 26px;line-height: 26px;}
   .el-input__icon.el-range__close-icon.el-icon-circle-close{line-height: 26px;}
 }
 .el-date-editor.el-range-editor.el-input__inner.el-date-editor--daterange.is-active{@include css(border, 1px solid $title_line_color);}
-.el-date-table td.in-range div{@include css(background, $bg_color);}
+// .el-date-table td.in-range div{@include css(background, $bg_color);}
 
 // 计数器
 .el-input-number{height: 34px;line-height: 34px;
@@ -1072,6 +1075,16 @@ html,body,div,p,ul,ol,li{margin:0;padding:0;}
   }
   .el-message-box__status.el-icon-warning {background: url('/images/message/messager_icons.png') no-repeat scroll -32px 0; width: 32px;height: 32px;}
 }
+.el-input.el-input--suffix > .el-input__inner {
+  color: #52aff6 !important;
+}
+// .el-input.el-input--suffix > .el-input__inner {
+//   color: #52aff6 !important;
+// }
+// .el-popover, .el-picker-panel, .el-select-dropdown {
+//   background-color: #124e8a !important;
+//   color: #52aff6 !important;
+// }
 // 修改二级菜单样式
 .el-menu--horizontal {
   .el-menu {
@@ -1141,4 +1154,73 @@ html,body,div,p,ul,ol,li{margin:0;padding:0;}
       color: #fff !important;
     }
   }
+}
+.h-t-left {
+  width: 15px;
+  height: calc(100% - 63px);
+  background: url('/images/compented/6.png')no-repeat;
+  top: 41px;
+  left: 0;
+}
+.h-t-right {
+  width: 15px;
+  height: calc(100% - 136px);
+  background: url('/images/compented/4.png')no-repeat;
+  top: 40px;
+  right: -2px;
+}
+.h-t-bottom {
+  width: calc(100% - 120px);
+  height: 15px;
+  background: url('/images/compented/2.png')no-repeat;
+  bottom: -2px;
+  left: 24px;
+}
+.h-t-left-jiao {
+  width: 24px;
+  height: 24px;
+  background: url('/images/compented/5.png')no-repeat;
+  bottom: -2px;
+  left: 0;
+}
+.h-t-right-jiao {
+  width: 98px;
+  height: 98px;
+  background: url('/images/compented/3.png')no-repeat;
+  bottom: -2px;
+  right: -2px;
+}
+.h-t-top-jiao {
+  width: 1px;
+  height: 40px;
+  top: 0;
+  right: 0;
+  background: url('/images/compented/1px.png')no-repeat;
+}
+.h-t {
+  position: absolute;
+}
+.home-t-head-top {
+  width: 21px;
+  height: 35px;
+  background: url('/images/compented/title-1.png')no-repeat;
+  float: left;
+  border-bottom: 1px solid #063355;
+}
+.home-t-o-title {
+  width: calc(100% - 21px);
+  height: 35px;
+  background: #125774;
+  border-bottom: 1px solid #063355;
+  float: left;
+  line-height: 35px;
+  & > span {
+    padding-left: 15px;
+  }
+}
+.ZXpcjks_gkzl {
+  float: left;
+  width: 100%;
+  height: calc(100%/3 - 36px);
+  overflow: auto;
 }
