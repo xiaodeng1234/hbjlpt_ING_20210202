@@ -19,6 +19,18 @@
         padding: 7px 10px;
         background: rgba(18,78,138,0.3);
       }
+      &_top {
+        height: 240px;
+        & > div {
+          height: 90px;
+          margin-top: 30px;
+          width: 25%;
+          float: left;
+        }
+      }
+      &_map {
+        height: calc(100% - 300px);
+      }
     }
   }
   &_right {
@@ -28,11 +40,30 @@
   .home-item-one {
     height: 100%;
     width: 100%;
+    position: relative;
+    z-index: 2;
   }
   .home-itemk {
     width: calc(100% - 2px);
     float: left;
     height: calc(100% - 2px);
     background-color: rgba(2, 23, 44, .58);
+  }
+  .sqzl_name {
+    font-size: 20px;
+  }
+  .sqzl_value {
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: 600;
+    color: #4ff2b7;
+    float: left;
+    margin-top: 5px;
+  }
+  .sqzl_dw {
+    font-size: 20px;
+    color: #4ff2b7;
+    float: left;
+    margin-top: 25px;
   }
 }

@@ -25,6 +25,24 @@
       method: 'POSTFORM',
       label: '获取办理环节',
       endpoint: '/overview/getHandlLinks'
+    },
+    //获取办理情况总览
+    getBlqkzl: {
+      method: 'POSTFORM',
+      label: '获取办理情况总览',
+      endpoint: '/overview/getHandlStatistic'
+    },
+    //获取申请主体总览
+    getSqztData: {
+      method: 'POSTFORM',
+      label: '获取申请主体总览',
+      endpoint: '/overview/getApplySubjects'
+    },
+    //获取申请地总览
+    getSqdData: {
+      method: 'POSTFORM',
+      label: '获取申请地总览',
+      endpoint: '/overview/getApplyPlaces'
     }
   }
     

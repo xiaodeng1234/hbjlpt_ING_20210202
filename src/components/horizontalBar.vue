@@ -22,33 +22,53 @@ export default {
     colorList: {
       type: Array,
       default: () => ['#1189E5', '#ccecff', '#F45B5B']
+    },
+    title: {
+      type: String,
+      default: ''
     }
     
   },
   data () {
     return {
-      barEchart: null,
+      barEchart: null
     }
   },
   created () {
   },
   watch: {
     sqsxData (val) {
-      console.log(val, 'a')
       this.drowCanvas()
     } 
   },
   mounted () {
     this.barEchart = this.$echarts.init(this.$refs.char)
     window.addEventListener('resize', this.echartsResize)
+    this.barEchart.getZr().on('click', (params) => {
+      console.log(params, 'dad')
+    })
   },
   methods: {
     echartsResize () {
       this.barEchart.resize()
     },
     drowCanvas () {
+      let height = $(this.$parent.$el).find('#horBar').height()
+      if(this.sqsxData.length > 5) {
+        height = height + (this.sqsxData.length - 5) * 40 + 'px'
+      }
+      this.barEchart.resize({ height: height })
+      this.barEchart.getZr().off('click')
       let option = {
-        backgroundColor:"#003366",
+        textStyle:{
+          color:'#fff',
+        },
+        title: {
+          textStyle:{
+            color:'#fff',
+          },
+          text: '',
+        },
         grid: {
             left: '2%',
             right: '2%',
@@ -58,10 +78,12 @@ export default {
         },
         tooltip: {
           trigger: 'axis',
+          confine:true,
           axisPointer: {
-            type: 'none'
+            type: 'shadow'
           },
-          formatter: function(params) {
+          formatter: (params) => {
+            return this.chartFormatter(params, this.title)
             // return params[0].name  + ' : ' + params[0].value
           }
         },
@@ -69,13 +91,14 @@ export default {
             show: false,
             type: 'value'
         },
-        yAxis: [{
+        yAxis: {
             type: 'category',
-            inverse: true,
+            minInterval: 1,
             axisLabel: {
                 show: true,
                 textStyle: {
-                    color: '#fff'
+                    color: '#48b0ff',
+                    align: 'right'
                 },
             },
             splitLine: {
@@ -88,7 +111,7 @@ export default {
                 show: false
             },
             data: this.xAxis
-        }],
+        },
         series: this.series
       }
       this.barEchart.setOption(option)
@@ -96,19 +119,6 @@ export default {
   },
   computed: {
     series () {
-      let yDatas = [], copyObj = {}
-      this.sqsxData.map(cur => {
-        if (cur.MC != null && cur.MC != "") {
-          if(cur.MC !== '其他事项') {
-            yDatas.push({value: cur.SL, dm: cur.DM, mc: cur.MC});
-          } else {
-            copyObj = cur
-          }
-        }
-      })
-      if(copyObj.dm) {
-        yDatas.unshift(copyObj)
-      }
       return {
         type: 'bar',
         itemStyle : {
@@ -128,16 +138,15 @@ export default {
           }
         },
         barWidth: this.barWidth,
-        data: yDatas
+        maxBarWidth : 30,//柱子宽度
+        barGap: 10,
+        data: this.sqsxData
       }
     },
     xAxis () {
-      let xData = [], copyName = ''
+      let xData = []
       this.sqsxData.filter(cur => {
-        if (cur.MC != null && cur.MC != "") {
-          xData.push(cur.MC)
-          // if(cur.MC === '其他事项')
-        }
+        xData.push(cur.mc)
       })
       return xData
     }   

@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 module.exports = {
   publicPath: '',
   lintOnSave: true,
@@ -28,6 +29,13 @@ module.exports = {
     // 取消打包后文件大于244k警告
     performance: {
       hints: false
-    }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        $:"jquery",
+        jQuery:"jquery",
+        "windows.jQuery":"jquery"
+      })
+    ]
   }
 }

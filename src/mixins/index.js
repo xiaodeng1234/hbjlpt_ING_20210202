@@ -20,10 +20,10 @@ const mixin = {
       }
     },
     // 将超过四个字的文字隐藏
-    hideTextFormatter (params) {
+    hideTextFormatter (params, hideTextLen) {
       let str = params
-      if (params.length > this.hideTextLen) {
-        str = params.substring(0, this.hideTextLen) + '...'
+      if (params.length > hideTextLen) {
+        str = params.substring(0, hideTextLen) + '...'
       }
       return str
     },
@@ -64,6 +64,33 @@ const mixin = {
       let endDate = year + "-" + month + "-" + date
       let startDate = year + "-" + "01" + "-" + "01"
       return [startDate, endDate]
+    },
+    //echarts formater
+    chartFormatter (params, name) {
+      let param = params[0];
+      let html ="";
+      html+='<div>'
+      html+='<div>'+ name +'</div>'
+      html+='<div>'
+      html+=`<span style="background-color:${param.color};width: 10px;height:10px;border-radius: 50%;display: inline-block;margin-right:5px;"></span>`
+      html+=`<span>${param.axisValue}：${param.data.value}</span>`
+      html+='</div>'
+      html+='</div>'
+      return html;
+    },
+    // 渲染办理环节图例
+    drawBlhjChar (id, data) {
+      let dom = document.getElementById(id)
+      $('#' + id).html('')
+      data.map(el => {
+        let domItem = `<div class="blhj-item"><span title = '${el.MC}' class="blhj-name" style="overflow: hidden;white-space: nowrap;text-overflow:ellipsis">${el.MC}</span>
+        <div class="scqs-item"><div onclick="fondSC(${el.DM},'03')" class="scqs-num" style="width:${el.SCQSSL/(el.SCDBSL+el.SCQSSL)*100}%"></div>
+        </div><div class="scdb-item">
+        <div onclick="fondSC(${el.DM},'02')" class="scdb-num" style="width:${el.SCDBSL/(el.SCDBSL+el.SCQSSL)*100}%"></div></div>
+        <span class="blhj-num"><span style="color: #128ae4;cursor:pointer" onclick="fondSC(${el.DM},'03')">
+        ${el.SCQSSL}</span>/<span style="color: #2ecec7;cursor:pointer" onclick="fondSC(${el.DM},'02')">${el.SCDBSL}</span></span></div>`
+        dom.innerHTML += domItem
+      })
     }
   }
 }
